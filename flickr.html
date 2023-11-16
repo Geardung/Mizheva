@@ -1,0 +1,63 @@
+<html>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+    img {
+        max-height: 125px;
+        margin: 3px;
+        border: 1px solid #dedede;
+    }
+</style>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <script>
+
+        let api_key_token = prompt('Короче впишите токен сюда:', "9da748fe5b5d6e98cf92aef8be88caea"); // 9da748fe5b5d6e98cf92aef8be88caea
+        let gallery_di_token = prompt('id галереи', "66911286-72157647277042064"); // 66911286-72157647277042064
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=" + api_key_token + "&gallery_id=" + gallery_di_token + "&format=json&nojsoncallback=1",
+            "method": "GET",
+            "headers": {}
+        }
+
+        $.ajax(settings).done(function (data) {
+            console.log(data);
+
+
+
+            $("#galleryTitle").append(data.photos.photo[0].title + " Gallery");
+            $.each(data.photos.photo, function (i, gp) {
+
+                var farmId = gp.farm;
+                var serverId = gp.server;
+                var id = gp.id;
+                var secret = gp.secret;
+
+                console.log(farmId + ", " + serverId + ", " + id + ", " + secret);
+
+                //  https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+
+                $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg"/>');
+
+            });
+        });
+
+    </script>
+
+
+    <h2>
+        <div id="galleryTitle"></div>
+    </h2>
+    <div style="clear:both;" />
+    <div id="flickr" />
+
+
+</body>
+
+</html>
