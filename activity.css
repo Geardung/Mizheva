@@ -1,0 +1,108 @@
+.div2,
+.div3,
+.div5 {
+  position: absolute;
+  left: 0;
+  width: 360px;
+}
+.div3 {
+  top: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div2,
+.div5 {
+  top: 0;
+}
+.div2 {
+  height: 410px;
+  overflow: hidden;
+}
+.div5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+}
+.div1,
+.div4 {
+  left: 0;
+  overflow: hidden;
+}
+.div4 {
+  position: absolute;
+  top: 410px;
+  width: 360px;
+  height: 210px;
+  font-size: var(--font-size-41xl);
+}
+.div1 {
+  height: 620px;
+}
+.div1,
+.div10,
+.div6,
+.explore-a-park {
+  position: absolute;
+  top: 0;
+  width: 360px;
+}
+.explore-a-park {
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 410px;
+}
+.div10,
+.div6 {
+  height: 620px;
+}
+.div6 {
+  left: 360px;
+  overflow: hidden;
+  font-size: 51px;
+}
+.div10 {
+  left: 720px;
+}
+.div,
+.div10,
+.index1 {
+  overflow: hidden;
+}
+.div {
+  position: absolute;
+  top: 230px;
+  left: 410px;
+  width: 1098px;
+  height: 620px;
+}
+.index1 {
+  position: relative;
+  background-color: #7a9985;
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-181xl);
+  color: var(--color-white);
+  font-family: var(--font-marmelad);
+}
+
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-marmelad: Marmelad;
+  
+    /* font sizes */
+    --font-size-41xl: 60px;
+    --font-size-181xl: 200px;
+  
+    /* Colors */
+    --color-white: #fff;
+  }

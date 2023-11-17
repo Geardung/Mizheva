@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+    <link rel="stylesheet" href="./weather.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat Alternates:wght@300&display=swap" />
+</head>
+
+<body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+        // let api_key_token = prompt('Короче впишите токен сюда:', "9da748fe5b5d6e98cf92aef8be88caea"); // 9da748fe5b5d6e98cf92aef8be88caea
+        // let gallery_di_token = prompt('id галереи', "66911286-72157647277042064"); // 66911286-72157647277042064
+        
+        
+        var token = prompt("Введите токен от api.weatherapi.com: ", "135660d2981c4b2ab3f234929231611")
+    
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://api.weatherapi.com/v1/current.json?key="+ token +"&q="+ "novorossiysk" +"&aqi=no",
+            "method": "GET",
+            "headers": {}
+        }
+    
+        $.ajax(settings).done(function (data) {
+            console.log(data);
+    
+            $("#weather").append(data.current.condition.text);
+            $("#temp").append(data.current.temp_c);
+            $("#city").append(data.location.name);
+            $("#time").append(data.location.localtime);
+
+            let div = document.createElement('img');
+            div.src = "https:" + data.current.condition.icon;
+            $("#icon").append(div);
+          
+        });
+
+
+    </script>
+
+    <div class="index1">
+        <div class="div">
+            <div class="icon" id="icon"></div>
+            <div class="div1" id="weather">
+            </div>
+            <div class="div2">
+                <div class="div3" id="temp">
+                </div>
+                <div class="div5">
+                    <div class="div6">Температура</div>
+                </div>
+            </div>
+            <div class="div7">
+                <div class="div8" id="city">
+                </div>
+                <div class="div9" id="time">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

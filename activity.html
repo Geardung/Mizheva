@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    
+    <link rel="stylesheet" href="./activity.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marmelad:wght@400&display=swap" />
+</head>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+        // let api_key_token = prompt('Короче впишите токен сюда:', "9da748fe5b5d6e98cf92aef8be88caea"); // 9da748fe5b5d6e98cf92aef8be88caea
+        // let gallery_di_token = prompt('id галереи', "66911286-72157647277042064"); // 66911286-72157647277042064
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://www.boredapi.com/api/activity/",
+            "method": "GET",
+            "headers": {}
+        }
+        // 
+
+        $.ajax(settings).done(function (data) {
+            console.log(data);
+
+            $("#count_participiants").append(data.participants);
+            $("#activity_name").append(data.activity);
+            $("#price_count").append(data.price);
+
+        });
+
+    </script>
+
+    <div class="index1">
+        <div class="div">
+            <div class="div1">
+                <div class="div2" id="count_participiants">
+                </div>
+                <div class="div4">
+                    <div class="div5">Участников</div>
+                </div>
+            </div>
+            <div class="div6">
+                <div class="div2" id="activity_name">
+                </div>
+                <div class="div4">
+                    <div class="div5">Занятие</div>
+                </div>
+            </div>
+            <div class="div10">
+                <div class="div2" id="price_count">
+                </div>
+                <div class="div4">
+                    <div class="div5">Стоимость</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
